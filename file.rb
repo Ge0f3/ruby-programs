@@ -1,14 +1,21 @@
-def read_file
-	file = File.new("simple.txt","r")
-	if file
-		context = file.read()
-		words=context.split()
-		puts words
 
+def read_file
+	file =gets.chomp.to_s
+	
+	words=Array.new()
+	if File.exist? file
+		file =File.new(file,'r')
+		for line in file
+			word=line.chomp.split()
+			words.push(word)
+		end
+		puts words
 	else
-		puts "could\'nt open the file "
+		puts "File doesnt exits"
 	end
 	
+
+
 end
 puts ("Lets try out some operation with files in ruby ")
 read_file
